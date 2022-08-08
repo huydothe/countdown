@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<input type="text" id="number" width="40px" height="auto" placeholder="Nhập 1 số bất kì">-->
+<!--<button id="result" onclick="countdown()">Result</button>-->
+<p id="counter">Result</p>
+<!--<script src="demo.js"></script>-->
+<script>
+
+        function countDown(i) {
+            return promise = new Promise((resolve, reject) => {
+
+                if (i >= 0) {
+                    setTimeout(() => {
+                        document.getElementById('counter').innerHTML = i;
+                        i--
+                        countDown(i).then(resolve);
+                    }, 1000);
+                } else {
+                    resolve('counter finished:');
+                }
+
+            });
+
+        }
+
+        // let input = +document.getElementById("number").value;
+        let counter = countDown(10);
+        counter.then((msg) => {
+            document.getElementById('counter').innerHTML = msg;
+        });
+
+</script>
+</body>
+</html>
